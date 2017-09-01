@@ -23,9 +23,10 @@ io.on('connection', (socket) => {
     io.to(user.room).emit('usersUpdate',users.getUsersList(user.room));
   });
 
-  socket.on('createMsg', (msg) => {
+  socket.on('createMsg', (msg,callback) => {
     var user = users.getUser(socket.id);
     io.to(user.room).emit('newMsg', generateMsg(user.name, msg.text));
+    callback();
   });
 
   socket.on('createLocationMsg', (locationMsg, callback) => {
