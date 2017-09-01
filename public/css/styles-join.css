@@ -1,0 +1,71 @@
+*{
+  padding: 0;
+  margin: 0;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  font-size: .95rem;
+}
+
+button{
+  padding: 10px;
+  border: 0;
+  color:white;
+  background-color: #265f82;
+  cursor: pointer;
+  transition:background-color .3s ease;
+}
+
+button:hover{
+background-color: #1F4C69;
+}
+
+.centered-form {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background: -webkit-linear-gradient(to bottom right, rgba(39, 107, 130, 1) 100%, rgba(49, 84, 129, 1) 0%);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(to bottom right, rgba(39, 107, 130, 1) 0%, rgba(49, 84, 129, 1) 100%);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(to bottom right, rgba(39, 107, 130, 1) 0%, rgba(49, 84, 129, 1) 100%);
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, rgba(39, 107, 130, 1) 0%, rgba(49, 84, 129, 1) 100%);
+}
+
+.centered-form__form{
+  display: flex;
+  flex-direction: column;
+  background-color: #e6eaee;
+  padding: 20px;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.centered-form__form h2{
+  text-align: center;
+  font-size: 180%;
+  font-weight:600;
+  margin: 15px;
+  margin-top: 0px;
+}
+
+.centered-form__form input{
+  padding: 10px;
+  border: 0;
+  margin-bottom: 20px;
+  width: 180px;
+}
+
+.centered-form__label{
+    display: flex;
+}
+
+.centered-form__label p{
+    margin-left: 5px;
+    color: red;
+    visibility:hidden;
+}
+
+.centered-form__label label{
+  margin-bottom: 5px;
+}

@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Chat|join</title>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/styles-join.css">
+</head>
+
+<body class="centered-form">
+
+  <form class="centered-form__form" id="form-join" action="chat.html">
+    <h2>Join a Chat</h2>
+    <div class="centered-form__label">
+      <label>Name</label>
+      <p id="name-warning"></p>
+    </div>
+    <input type="text" name="name" placeholder="Name" autofocus autocomplete="off">
+    <div class="centered-form__label">
+      <label>Room</label>
+      <p id="room-warning">Room name is required</p>
+    </div>
+    <input type="text" name="room" placeholder="Room" autocomplete="off">
+    <button>Join</button>
+  </form>
+
+  <script src="libs/jquery-3.2.1.min.js"></script>
+  <script src="js/index.js"></script>
+  <script src="libs/mustache.min.js"></script>
+
+  <script id="name-template" type="text/template">
+    {{warning}}
+  </script>
+
+</body>
+
+</html>
