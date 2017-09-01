@@ -31,7 +31,7 @@ io.on('connection', (socket) => {
   socket.on('createLocationMsg', (locationMsg, callback) => {
     var user = users.getUser(socket.id);
     var url = `http://maps.google.com/?q=${locationMsg.lat},${locationMsg.long}`;
-    io.to(user.room).emit('newLocationMsg', generateMsg('User', url));
+    io.to(user.room).emit('newLocationMsg', generateMsg(user.name, url));
     callback();
   });
 
@@ -45,7 +45,6 @@ io.on('connection', (socket) => {
 
 app.post('/checkUser', function(req, res){
   var name=req.body.name;
-
   users.checkUserName(name,(user)=>{
     if(user){
       res.send(true);
@@ -53,7 +52,6 @@ app.post('/checkUser', function(req, res){
       res.send(false);
     }
   });
-
 });
 
 server.listen(port, () => {
