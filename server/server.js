@@ -1,6 +1,15 @@
 var {  path,  express,  socketIO,  http,  app,  publicPath,  server,  io,  generateMsg,  User} = require('./serverConfig.js');
 
+// var https = require('https');
+// var fs=require('fs');
+// var privateKey  = fs.readFileSync(__dirname+'/keys/key.pem', 'utf8');
+// var certificate = fs.readFileSync(__dirname+'/keys/server.crt', 'utf8');
+//
+// var credentials = {key: privateKey, cert: certificate};
+// var httpsServer = https.createServer(credentials, app);
+
 var port=process.env.PORT || 3000;
+
 var users = new User();
 
 io.on('connection', (socket) => {
@@ -50,3 +59,7 @@ app.post('/checkUser', function(req, res){
 server.listen(port, () => {
   console.log('Server has started');
 });
+
+// httpsServer.listen(port,()=>{
+//   console.log('Https server has started');
+// });

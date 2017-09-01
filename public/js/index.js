@@ -26,12 +26,13 @@ $("#form-join").on("submit", (event) => {
     nameWarning.css("visibility", "hidden");
     roomWarning.css("visibility", "hidden");
   }
-
+// http://localhost:3000/checkUser
+// https://boiling-fortress-14292.herokuapp.com/checkUser
   event.preventDefault();
 
   var request = $.ajax({
     method: "POST",
-    url: "http://localhost:3000/checkUser",
+    url: "https://boiling-fortress-14292.herokuapp.com/checkUser",
     contentType: 'application/json',
     data: JSON.stringify({
       name
