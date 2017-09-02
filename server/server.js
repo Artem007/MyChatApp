@@ -48,9 +48,9 @@ app.post('/checkUser', function(req, res){
   var name=req.body.name;
   users.checkUserName(name,(user)=>{
     if(user){
-      res.send(true);
+      res.header('Access-Control-Allow-Origin', '*').send(true);
     }else{
-      res.send(false);
+      res.header('Access-Control-Allow-Origin', '*').send(false);
     }
   });
 });

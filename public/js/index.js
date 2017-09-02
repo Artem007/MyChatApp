@@ -43,7 +43,6 @@ $("#form-join").on("submit", (event) => {
     if (nameIsTaken) {
       nameWarning.text("This name already taken");
       nameWarning.css("visibility", "visible");
-      // console.log("Name Taken");
     }else{
       $("#form-join").unbind('submit').submit();
     }
