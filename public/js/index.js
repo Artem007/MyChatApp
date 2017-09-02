@@ -35,7 +35,8 @@ $("#form-join").on("submit", (event) => {
     // url:"http://localhost:3000/checkUser",
     contentType: 'application/json',
     data: JSON.stringify({
-      name
+      name,
+      room
     })
   });
 

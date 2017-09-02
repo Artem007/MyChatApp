@@ -1,18 +1,5 @@
 var {  path,  express,  socketIO,  http,  app,  publicPath,  server,  io,  generateMsg,  User} = require('./serverConfig.js');
 
-// var https = require('https');
-// var fs=require('fs');
-// var privateKey  = fs.readFileSync(__dirname+'/keys/key.pem', 'utf8');
-// var certificate = fs.readFileSync(__dirname+'/keys/server.crt', 'utf8');
-//
-// var credentials = {key: privateKey, cert: certificate};
-// var httpsServer = https.createServer(credentials, app);
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
-
 var port=process.env.PORT || 3000;
 
 var users = new User();
@@ -50,8 +37,8 @@ io.on('connection', (socket) => {
 });
 
 app.post('/checkUser', function(req, res){
-  var name=req.body.name;
-  users.checkUserName(name,(user)=>{
+  var {name,room}=req.body;
+  users.checkUserName(name,room,(user)=>{
     if(user){
       res.send(true);
     }else{
@@ -63,7 +50,3 @@ app.post('/checkUser', function(req, res){
 server.listen(port, () => {
   console.log('Server has started');
 });
-
-// httpsServer.listen(port,()=>{
-//   console.log('Https server has started');
-// });

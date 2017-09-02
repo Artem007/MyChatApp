@@ -25,12 +25,13 @@ class User {
     var names=this.users.filter((user)=>user.room===room).map((user)=>user.name);
     return names;
   }
-  checkUserName(name,callback){
+  checkUserName(name,room,callback){
     fs.readFile('./server/utils/data/userData.json','utf8',(err,users)=>{
       if(users===""){
         callback(false)
       }else{
         var users=JSON.parse(users);
+        var users=users.filter((user)=>user.room===room);
         var user=users.find((user)=>user.name===name);
         callback(user);
       }
@@ -41,15 +42,18 @@ class User {
 module.exports={User}
 
 // var users=new User();
-
+//
 // users.addUser(1,'Andy','Tennis');
 // users.addUser(2,'Rafa','Tennis');
 // users.addUser(3,'Roger','Tennis');
 // users.addUser(4,'Novak','Tennis');
 //
+// users.addUser(5,'Tony','Song');
+// users.addUser(6,'Taylor','Song');
+//
 // users.removeUser(2);
 
-// users.checkUserName('Rafa',(user)=>{
+// users.checkUserName('Ed','Tenniss',(user)=>{
 //   if(user){
 //     console.log('Can not create');
 //   }else{
@@ -57,8 +61,7 @@ module.exports={User}
 //   }
 // });
 
-// users.addUser(5,'Tony','Song');
-// users.addUser(6,'Taylor','Song');
+
 //
 // console.log(users.getUsersList("Tennis"));
 // console.log(users.users);
