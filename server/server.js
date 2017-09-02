@@ -7,6 +7,11 @@ var {  path,  express,  socketIO,  http,  app,  publicPath,  server,  io,  gener
 //
 // var credentials = {key: privateKey, cert: certificate};
 // var httpsServer = https.createServer(credentials, app);
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 var port=process.env.PORT || 3000;
 
@@ -48,9 +53,9 @@ app.post('/checkUser', function(req, res){
   var name=req.body.name;
   users.checkUserName(name,(user)=>{
     if(user){
-      res.header('Access-Control-Allow-Origin', '*').send(true);
+      res.send(true);
     }else{
-      res.header('Access-Control-Allow-Origin', '*').send(false);
+      res.send(false);
     }
   });
 });
